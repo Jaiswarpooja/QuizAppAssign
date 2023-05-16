@@ -1,12 +1,18 @@
 # QuizAppAssign
->Creating database in mysql -> **create database quizapp;**
+> Download and Extract the File and open it into your SpringToolSuit Eclipse or Jet Brains IntelliJ IDEA
 
-![Create DB](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/b9c6adbb-d7d7-48d0-9e27-c73c259e36c3)
+>Creating database in mysql -> **create database quizapp;**
+  *![Create DB](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/b9c6adbb-d7d7-48d0-9e27-c73c259e36c3)
+
+>Update /QuizApp/src/main/resources/application.properties
+  * spring.datasource.url= jdbc:mysql://localhost:3306/quizapp?useSSL=false (quizapp -> You DataBase)
+  * spring.datasource.username= root (Your Username)
+  * spring.datasource.password= root (Your Password)
 
 >Checking **running appliction** in Eclipse IDE 
-![checking running application](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/fd11fe0a-ea09-4a63-9284-802356136a1a)
+  *![checking running application](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/fd11fe0a-ea09-4a63-9284-802356136a1a)
 
->API Test -> Postman
+>**API Test -> Postman**
   >Create Quiz
   * http://localhost:8080/api/quizzes
   ![Post Method - Create Quiz](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/6bc0e8f9-566c-4365-85bd-6f532c5601d6)
@@ -21,7 +27,9 @@
 
 >Get All Active Quiz
   * http://localhost:8080/api/quizzes/active
-  > Adding Active Quiz
-  ![Quiz-Activ1](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/f966947f-a1d7-473f-a657-f911c7a39c35)
-  > Testing Active Quiz
-  ![Quiz-Activ1-View](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/076803d4-d30c-4520-ab68-e081952af492)
+    * Adding Active Quiz
+    ![Quiz-Activ1](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/f966947f-a1d7-473f-a657-f911c7a39c35)
+    * Testing Active Quiz
+    ![Quiz-Activ1-View](https://github.com/Jaiswarpooja/QuizAppAssign/assets/89985685/076803d4-d30c-4520-ab68-e081952af492)
+
+Thanks
