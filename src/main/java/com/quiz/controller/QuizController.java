@@ -1,5 +1,6 @@
 package com.quiz.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,15 +61,25 @@ public class QuizController {
 		System.out.println("Updating Status Every minute");
     }
 	
+	//	 Release Result After 5 minutes
 	@GetMapping("/quizzes/{id}/result")
 	public ResponseEntity<?> getquizResult(@PathVariable("id") Long id) {
-		Optional<Quiz> quiz = quizRepo.findById(id);
-		if(quiz.isPresent()) {
-			return new ResponseEntity<>(quiz.get().getRightAnswer(),HttpStatus.OK);
+		Optional<Quiz> quizz = quizRepo.findById(id);
+		if(quizz.isPresent()) {
+			LocalDateTime endTimePlusFive = quizz.get().getEndDateTime().plusMinutes(5);
+	        LocalDateTime now = LocalDateTime.now();
+	        if (endTimePlusFive.isBefore(now)) {
+	        	System.out.println(endTimePlusFive.isBefore(now)+"Before");
+		         return new ResponseEntity<>("The Result is not Release.",HttpStatus.OK);
+	        } else if (endTimePlusFive.isAfter(now)) {
+	        	System.out.println(endTimePlusFive.isAfter(now)+"After");
+	        	return new ResponseEntity<>(quizz.get().getRightAnswer(),HttpStatus.OK);
+	        } else {
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	        }
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
 	
 }
